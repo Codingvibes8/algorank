@@ -10,54 +10,54 @@ const rows: { label: string; old: string; us: string; win: boolean }[] = [
 
 export default function Comparison() {
   return (
-    <section id="why" className="scroll-mt-24 border-y border-white/10 bg-ink-900/40">
+    <section id="why" className="scroll-mt-36 border-y border-black/10 bg-white dark:border-white/10 dark:bg-ink-900/40">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-400">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-600 dark:text-brand-400">
             Why Algorank is different
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-ink-950 sm:text-4xl dark:text-white">
             Most GEO tools give you dashboards full of data.
           </h2>
-          <p className="mt-2 text-lg text-zinc-400">
+          <p className="mt-2 text-lg text-zinc-600 dark:text-zinc-400">
             Algorank gives you insights — plus the done-for-you work to act on them.
           </p>
         </div>
 
         <div className="mx-auto mt-10 grid max-w-4xl gap-4 md:grid-cols-2">
-          <div className="rounded-2xl border border-white/10 bg-ink-950 p-7">
-            <p className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500">
+          <div className="rounded-2xl border border-black/10 bg-paper p-7 shadow-sm dark:border-white/10 dark:bg-ink-950 dark:shadow-none">
+            <p className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-500">
               <LayoutDashboard className="h-4 w-4" /> Other GEO tools
             </p>
             <ul className="mt-5 space-y-3.5">
               {rows.map((r) => (
-                <li key={r.label} className="flex items-center gap-3 text-[15px] text-zinc-400">
-                  <X className="h-4 w-4 shrink-0 text-zinc-600" />
+                <li key={r.label} className="flex items-center gap-3 text-[15px] text-zinc-500 dark:text-zinc-400">
+                  <X className="h-4 w-4 shrink-0 text-zinc-400 dark:text-zinc-600" />
                   {r.old}
                 </li>
               ))}
-              <li className="flex items-center gap-3 border-t border-white/10 pt-3.5 text-[15px] text-zinc-400">
-                <X className="h-4 w-4 shrink-0 text-zinc-600" />
+              <li className="flex items-center gap-3 border-t border-black/10 pt-3.5 text-[15px] text-zinc-500 dark:border-white/10 dark:text-zinc-400">
+                <X className="h-4 w-4 shrink-0 text-zinc-400 dark:text-zinc-600" />
                 £35–£85/mo · self-serve
               </li>
             </ul>
           </div>
 
-          <div className="relative rounded-2xl border border-lime-pop/40 bg-gradient-to-b from-lime-pop/10 to-transparent p-7">
+          <div className="relative rounded-2xl border border-lime-pop/50 bg-gradient-to-b from-lime-pop/15 to-white p-7 shadow-sm dark:border-lime-pop/40 dark:from-lime-pop/10 dark:to-transparent dark:shadow-none">
             <span className="absolute -top-3 left-6 rounded-full bg-lime-pop px-3 py-1 text-xs font-bold uppercase tracking-wide text-ink-950">
               Winner
             </span>
-            <p className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-white">
+            <p className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-ink-950 dark:text-white">
               <Inbox className="h-4 w-4 text-lime-pop" /> Algorank
             </p>
             <ul className="mt-5 space-y-3.5">
               {rows.map((r) => (
-                <li key={r.label} className="flex items-center gap-3 text-[15px] font-medium text-white">
+                <li key={r.label} className="flex items-center gap-3 text-[15px] font-medium text-ink-950 dark:text-white">
                   <Check className="h-4 w-4 shrink-0 text-lime-pop" />
                   {r.us}
                 </li>
               ))}
-              <li className="flex items-center gap-3 border-t border-white/10 pt-3.5 text-[15px] font-semibold text-white">
+              <li className="flex items-center gap-3 border-t border-black/10 pt-3.5 text-[15px] font-semibold text-ink-950 dark:border-white/10 dark:text-white">
                 <Check className="h-4 w-4 shrink-0 text-lime-pop" />
                 From £490/mo · done-for-you
               </li>
@@ -83,10 +83,10 @@ export default function Comparison() {
               d: "Every report includes exact next steps — and we implement them for you on retainer.",
             },
           ].map((f) => (
-            <div key={f.t} className="rounded-2xl border border-white/10 bg-ink-950 p-6">
-              <f.icon className="h-6 w-6 text-brand-400" />
-              <h3 className="mt-3 font-bold text-white">{f.t}</h3>
-              <p className="mt-1.5 text-sm leading-relaxed text-zinc-400">{f.d}</p>
+            <div key={f.t} className="rounded-2xl border border-black/10 bg-paper p-6 shadow-sm dark:border-white/10 dark:bg-ink-950 dark:shadow-none">
+              <f.icon className="h-6 w-6 text-brand-600 dark:text-brand-400" />
+              <h3 className="mt-3 font-bold text-ink-950 dark:text-white">{f.t}</h3>
+              <p className="mt-1.5 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{f.d}</p>
             </div>
           ))}
         </div>

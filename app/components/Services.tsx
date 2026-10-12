@@ -48,18 +48,18 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="scroll-mt-24">
+    <section id="services" className="scroll-mt-36">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-600 dark:text-brand-400">
               Services
             </p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-ink-950 sm:text-4xl dark:text-white">
               A full-stack AI SEO agency, not another tool login
             </h2>
           </div>
-          <p className="max-w-sm text-[15px] text-zinc-400">
+          <p className="max-w-sm text-[15px] text-zinc-600 dark:text-zinc-400">
             Everything traditional SEO does, rebuilt for the era where the
             answer — not ten blue links — wins the click.
           </p>
@@ -69,16 +69,16 @@ export default function Services() {
           {services.map((s) => (
             <article
               key={s.title}
-              className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-brand-500/40 hover:bg-white/[0.05]"
+              className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm transition hover:border-brand-500/50 hover:shadow-md dark:border-white/10 dark:bg-white/[0.03] dark:shadow-none dark:hover:border-brand-500/40 dark:hover:bg-white/[0.05]"
             >
               <div className="flex items-center justify-between">
-                <s.icon className="h-7 w-7 text-brand-400" />
-                <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-semibold text-zinc-300">
+                <s.icon className="h-7 w-7 text-brand-600 dark:text-brand-400" />
+                <span className="rounded-full border border-black/10 bg-zinc-100 px-2.5 py-1 text-[11px] font-semibold text-zinc-600 dark:border-white/10 dark:bg-white/5 dark:text-zinc-300">
                   {s.tag}
                 </span>
               </div>
-              <h3 className="mt-4 text-lg font-bold text-white">{s.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-400">{s.body}</p>
+              <h3 className="mt-4 text-lg font-bold text-ink-950 dark:text-white">{s.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{s.body}</p>
             </article>
           ))}
         </div>

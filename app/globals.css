@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
@@ -10,17 +12,39 @@
   --color-brand-400: #818cf8;
   --color-brand-500: #6366f1;
   --color-brand-600: #4f46e5;
-  --color-lime-pop: #d4f93b;
+  /* Light-mode value; overridden to neon lime under `.dark` below. */
+  --color-lime-pop: #4d7c0f;
   --color-paper: #f7f6f2;
+}
+
+/* Unlayered rules win over Tailwind's `@layer theme`, so these switch
+   the accent + page surfaces when `.dark` is on `<html>`. */
+:root {
+  color-scheme: light;
+  --page-bg: #f7f6f2;
+  --page-fg: #0a0f2e;
+}
+
+.dark {
+  color-scheme: dark;
+  --color-lime-pop: #d4f93b;
+  --page-bg: #060a1f;
+  --page-fg: #f4f4f5;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
+/* Safety net: decorative full-bleed glows must never cause sideways scroll. */
+html,
 body {
-  background: #060a1f;
-  color: #f4f4f5;
+  overflow-x: clip;
+}
+
+body {
+  background-color: var(--page-bg);
+  color: var(--page-fg);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }
@@ -32,9 +56,15 @@ body {
 
 .grid-pattern {
   background-image:
+    linear-gradient(to right, rgb(10 15 46 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(10 15 46 / 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.dark .grid-pattern {
+  background-image:
     linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
     linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
-  background-size: 56px 56px;
 }
 
 .text-balance {

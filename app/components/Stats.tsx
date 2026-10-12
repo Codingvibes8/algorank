@@ -18,15 +18,15 @@ export default function Stats() {
   ];
 
   return (
-    <section className="border-y border-white/10 bg-ink-900/40">
+    <section className="border-y border-black/10 bg-white dark:border-white/10 dark:bg-ink-900/40">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20">
-        <p className="text-center text-xs font-semibold uppercase tracking-[0.25em] text-brand-400">
+        <p className="text-center text-xs font-semibold uppercase tracking-[0.25em] text-brand-600 dark:text-brand-400">
           The AI search shift
         </p>
-        <h2 className="text-balance mx-auto mt-3 max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
+        <h2 className="text-balance mx-auto mt-3 max-w-2xl text-center text-3xl font-bold tracking-tight text-ink-950 sm:text-4xl dark:text-white">
           AI search is reshaping discovery
         </h2>
-        <p className="mx-auto mt-3 max-w-xl text-center text-[15px] text-zinc-400">
+        <p className="mx-auto mt-3 max-w-xl text-center text-[15px] text-zinc-600 dark:text-zinc-400">
           While traditional SEO chases Google rankings, your customers are
           already asking AI for recommendations.
         </p>
@@ -35,20 +35,20 @@ export default function Stats() {
           {stats.map((s) => (
             <div
               key={s.label}
-              className="rounded-2xl border border-white/10 bg-ink-950 p-7 text-center"
+              className="rounded-2xl border border-black/10 bg-paper p-7 text-center shadow-sm dark:border-white/10 dark:bg-ink-950 dark:shadow-none"
             >
-              <p className="bg-gradient-to-b from-white to-zinc-500 bg-clip-text text-5xl font-bold tracking-tight text-transparent">
+              <p className="bg-gradient-to-b from-ink-950 to-zinc-400 bg-clip-text text-5xl font-bold tracking-tight text-transparent dark:from-white dark:to-zinc-500">
                 {s.value}
               </p>
               <p className="mt-2 text-sm font-semibold uppercase tracking-wider text-lime-pop">
                 {s.label}
               </p>
-              <p className="mt-3 text-sm leading-relaxed text-zinc-400">{s.body}</p>
+              <p className="mt-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{s.body}</p>
             </div>
           ))}
         </div>
 
-        <p className="mt-8 text-center text-sm text-zinc-500">
+        <p className="mt-8 text-center text-sm text-zinc-500 dark:text-zinc-500">
           The question isn&apos;t if AI search matters — it&apos;s whether
           you&apos;re being mentioned.
         </p>

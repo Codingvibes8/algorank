@@ -6,7 +6,7 @@
 
 - Next.js 16 (App Router, Turbopack, static prerender), React 19, TypeScript 5
 - Tailwind CSS v4 (`@import "tailwindcss"` + `@theme` tokens in `app/globals.css`)
-- `lucide-react` for icons. No other UI/component libraries.
+- `lucide-react` for icons, `next-themes` for light/dark theming. No other UI/component libraries.
 - ESLint 9 + `eslint-config-next`. No test runner configured.
 
 ## Commands

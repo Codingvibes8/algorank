@@ -50,16 +50,16 @@ export default function Faq() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="scroll-mt-24 border-t border-white/10 bg-ink-900/40">
+    <section id="faq" className="scroll-mt-36 border-t border-black/10 bg-white dark:border-white/10 dark:bg-ink-900/40">
       <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24">
         <div className="text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-400">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-600 dark:text-brand-400">
             FAQ
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-ink-950 sm:text-4xl dark:text-white">
             Frequently asked questions
           </h2>
-          <p className="mt-2 text-[15px] text-zinc-400">
+          <p className="mt-2 text-[15px] text-zinc-600 dark:text-zinc-400">
             Everything you need to know about working with Algorank.
           </p>
         </div>
@@ -71,24 +71,26 @@ export default function Faq() {
               <div
                 key={f.q}
                 className={`overflow-hidden rounded-2xl border transition ${
-                  isOpen ? "border-brand-500/40 bg-white/[0.04]" : "border-white/10 bg-ink-950"
+                  isOpen
+                    ? "border-brand-500/40 bg-brand-600/[0.05] dark:bg-white/[0.04]"
+                    : "border-black/10 bg-paper dark:border-white/10 dark:bg-ink-950"
                 }`}
               >
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
                   className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
                 >
-                  <span className="text-[15px] font-semibold text-white">{f.q}</span>
+                  <span className="text-[15px] font-semibold text-ink-950 dark:text-white">{f.q}</span>
                   <span
                     className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition ${
-                      isOpen ? "bg-lime-pop text-ink-950" : "bg-white/10 text-white"
+                      isOpen ? "bg-lime-pop text-ink-950" : "bg-black/10 text-ink-950 dark:bg-white/10 dark:text-white"
                     }`}
                   >
                     <Plus className={`h-4 w-4 transition-transform ${isOpen ? "rotate-45" : ""}`} />
                   </span>
                 </button>
                 {isOpen && (
-                  <p className="px-5 pb-5 text-sm leading-relaxed text-zinc-400">{f.a}</p>
+                  <p className="px-5 pb-5 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{f.a}</p>
                 )}
               </div>
             );
