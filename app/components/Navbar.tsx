@@ -76,7 +76,7 @@ export default function Navbar() {
               Pricing
             </a>
             <a
-              href="#cta"
+              href="#audit"
               className="group inline-flex items-center gap-1.5 rounded-full bg-ink-950 px-4 py-2 text-sm font-semibold text-white transition hover:bg-ink-800 dark:bg-white dark:text-ink-950 dark:hover:bg-lime-pop"
             >
               Get free audit
@@ -109,7 +109,7 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="#cta"
+              href="#audit"
               onClick={() => setOpen(false)}
               className="mt-3 flex items-center justify-center gap-2 rounded-full bg-ink-950 px-4 py-3 text-sm font-semibold text-white dark:bg-white dark:text-ink-950"
             >

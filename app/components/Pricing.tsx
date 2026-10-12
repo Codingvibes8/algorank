@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Check, ArrowRight, ShieldCheck } from "lucide-react";
+import { SITE, hasStripePilot, pilotHref } from "../lib/site";
 
 type Plan = {
   name: string;
@@ -66,6 +67,11 @@ const plans: Plan[] = [
     ],
   },
 ];
+
+/** Pilot goes to Stripe checkout (or the audit form until configured); retainers go to booking. */
+function hrefFor(plan: Plan): string {
+  return plan.oneoff !== null ? pilotHref : "#book";
+}
 
 export default function Pricing() {
   const [annual, setAnnual] = useState(false);
@@ -149,7 +155,7 @@ export default function Pricing() {
                 ))}
               </ul>
               <a
-                href="#cta"
+                href={hrefFor(p)}
                 className={`mt-6 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition ${
                   p.highlight
                     ? "bg-lime-pop text-ink-950 hover:brightness-105 dark:hover:brightness-110"
@@ -158,6 +164,14 @@ export default function Pricing() {
               >
                 {p.cta} <ArrowRight className="h-4 w-4" />
               </a>
+              {p.oneoff !== null && !hasStripePilot && (
+                <p className="mt-2 text-center text-xs text-zinc-500 dark:text-zinc-500">
+                  Online checkout opening soon — or{" "}
+                  <a href={SITE.calUrl || `mailto:${SITE.email}`} className="underline underline-offset-2">
+                    talk to us first
+                  </a>
+                </p>
+              )}
             </article>
           ))}
         </div>

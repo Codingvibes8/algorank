@@ -37,6 +37,8 @@ export default function Footer() {
                 ["Why Algorank", "#why"],
                 ["Services", "#services"],
                 ["Pricing", "#pricing"],
+                ["Free audit", "#audit"],
+                ["Book a call", "#book"],
                 ["FAQ", "#faq"],
               ].map(([label, href]) => (
                 <li key={href}>
