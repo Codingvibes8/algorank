@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
-import { hasStripePilot, pilotHref } from "../lib/site";
+import CheckoutButton from "./CheckoutButton";
+import { pilotHref } from "../lib/site";
 
 export default function Cta() {
   return (
@@ -21,13 +22,13 @@ export default function Cta() {
             value) with every pilot this month.
           </p>
           <div className="relative mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a
-              href={pilotHref}
+            <CheckoutButton
+              plan="pilot"
+              fallbackHref={pilotHref}
               className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-lime-pop px-7 py-3.5 text-[15px] font-bold text-ink-950 transition hover:brightness-105 sm:w-auto"
             >
-              {hasStripePilot ? "Start pilot — £249" : "Get your free audit"}{" "}
-              <ArrowRight className="h-4 w-4" />
-            </a>
+              Start pilot — £249 <ArrowRight className="h-4 w-4" />
+            </CheckoutButton>
             <a
               href="#book"
               className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-black/20 bg-white/60 px-7 py-3.5 text-[15px] font-semibold text-ink-950 transition hover:bg-white sm:w-auto dark:border-white/20 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"

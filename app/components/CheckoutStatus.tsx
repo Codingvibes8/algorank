@@ -4,14 +4,29 @@ import { useSearchParams } from "next/navigation";
 import { CheckCircle2, RotateCcw } from "lucide-react";
 import { pilotHref } from "../lib/site";
 
+const PLAN_LABEL: Record<string, string> = {
+  pilot: "8-Week Pilot",
+  "growth-monthly": "Growth Retainer (monthly)",
+  "growth-quarterly": "Growth Retainer (quarterly)",
+};
+
 /**
- * Shows a one-off banner after Stripe redirects back.
- * Configure the Payment Link: after payment → ?pilot=success,
- * on cancel → ?pilot=cancelled.
+ * Shows a one-off banner after Stripe Checkout redirects back.
+ * Success → /?checkout=success&plan=pilot (legacy ?pilot=success also works).
+ * Cancel  → /?checkout=cancelled (legacy ?pilot=cancelled also works).
  */
 export default function CheckoutStatus() {
   const params = useSearchParams();
-  const state = params.get("pilot");
+  const checkout = params.get("checkout");
+  const legacy = params.get("pilot");
+  const plan = params.get("plan") ?? "pilot";
+
+  const state =
+    checkout === "success" || legacy === "success"
+      ? "success"
+      : checkout === "cancelled" || legacy === "cancelled"
+        ? "cancelled"
+        : null;
 
   if (state === "success") {
     return (
@@ -20,7 +35,7 @@ export default function CheckoutStatus() {
           <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-lime-pop" />
           <div>
             <p className="font-bold text-ink-950 dark:text-white">
-              Payment received — welcome to the pilot
+              Payment received — welcome{PLAN_LABEL[plan] ? ` to the ${PLAN_LABEL[plan]}` : ""}
             </p>
             <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-300">
               Your first report lands within 72 hours. Meanwhile,{" "}
